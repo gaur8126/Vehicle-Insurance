@@ -12,8 +12,8 @@ list_of_files = [
     f"{project_name}/components/model_trainer.py",
     f"{project_name}/components/model_evaluation.py",
     f"{project_name}/components/model_pusher.py",
-    f"{project_name}/configuration/__init__.py"
-    f"{project_name}/configuration/mongodb_connection.py"
+    f"{project_name}/configuration/__init__.py",
+    f"{project_name}/configuration/mongodb_connection.py",
     f"{project_name}/configuration/aws_connection.py",
     f"{project_name}/cloud_storage/__init__.py",
     f"{project_name}/cloud_storage/aws_storage.py",
@@ -24,7 +24,7 @@ list_of_files = [
     f"{project_name}/entity/config_entity.py",
     f"{project_name}/entity/artifact_entity.py",
     f"{project_name}/entity/estimator.py",
-    f"{project_name}/entiry/s3_estimator.py",
+    f"{project_name}/entity/s3_estimator.py",
     f"{project_name}/exception/__init__.py",
     f"{project_name}/logger/__init__.py",
     f"{project_name}/pipeline/__init__.py",
