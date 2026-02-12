@@ -54,8 +54,8 @@ class VehicleData:
             # print(df.head())
             logging.info(f"data fetched with len: {len(df)}")
 
-            if "_id" and "id" in df.columns.to_list():
-                df = df.drop(columns=["_id","id"], axis=1)
+            if "_id" in df.columns.to_list():
+                df = df.drop(columns=["_id"], axis=1)
                 # print(df.head())
             df.replace({"na":np.nan}, inplace=True)
             return df 

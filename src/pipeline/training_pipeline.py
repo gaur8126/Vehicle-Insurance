@@ -3,9 +3,14 @@ from src.exception import MyException
 from src.logger import logging
 
 
-from src.entity.config_entity import DataIngestionConfig
+from src.entity.config_entity import (DataIngestionConfig, 
+                                      DataValidationConfig)
+
 from src.components.data_ingestion import DataIngestion
-from src.entity.artifact_entity import DataIngestionArtifact
+from src.components.data_validation import DataVlidation
+
+from src.entity.artifact_entity import( DataIngestionArtifact, 
+                                       DataValidationArtifact)
 
 
 
@@ -13,6 +18,8 @@ class TrainingPipeline:
 
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
+        self.data_validation_config = DataValidationConfig()
+
 
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
@@ -33,6 +40,24 @@ class TrainingPipeline:
             return data_ingestion_artifact
         except Exception as e:
             raise MyException(e, sys) from e
+        
+    def start_data_validation(self, data_ingestion_artifact:DataIngestionArtifact) -> DataValidationArtifact:
+
+        try: 
+            logging.info("Entered the start_data_validation method of traininf pipeline class")
+            logging.info("Start data validation")
+
+            data_validation = DataVlidation(data_ingestion_artifact=data_ingestion_artifact, data_validation_config=self.data_validation_config)
+            data_validation_artifact = data_validation.initiate_data_validation()
+            logging.info("data validation completed")
+            logging.info("Exited the start data validation")
+
+            return data_validation_artifact
+
+        except Exception as e:
+            raise MyException(e, sys) from e
+        
+    
 
     def run_pipeline(self,) -> None:
 
@@ -41,6 +66,7 @@ class TrainingPipeline:
         """
         try:
             data_ingestion_artifact = self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
 
         except Exception as e:
             raise MyException(e, sys) from e
