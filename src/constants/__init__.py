@@ -75,7 +75,7 @@ Model Evaluation
 """
 
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE:float = 0.02
-MODEL_BUCKET_NAME = "my_model_mlops_vehicle"
+MODEL_BUCKET_NAME = "mlopsvehicleinsurance12"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 APP_HOST = "0.0.0.0"
