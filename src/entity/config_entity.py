@@ -56,3 +56,5 @@ class ModelTrainerConfig:
     _criterion = MIN_SAMPLES_SPLIT_CRITERION
     _random_state = MIN_SAMPLES_SPLIT_RANDOM_STATE
 
+
+
