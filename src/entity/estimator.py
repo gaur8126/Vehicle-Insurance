@@ -33,6 +33,27 @@ class MyModel:
         try:
             logging.info("Starting prediction process.")
 
+            # Align input dataframe columns with the fitted preprocessor expectations
+            try:
+                preprocessor = None
+                if isinstance(self.preprocessing_object, Pipeline):
+                    preprocessor = self.preprocessing_object.named_steps.get("preprocessor")
+                else:
+                    preprocessor = self.preprocessing_object
+
+                if preprocessor is not None and hasattr(preprocessor, "feature_names_in_"):
+                    expected_cols = list(preprocessor.feature_names_in_)
+                    missing_cols = [c for c in expected_cols if c not in dataframe.columns]
+                    # add missing columns with default 0 values
+                    for col in missing_cols:
+                        dataframe[col] = 0
+                    # reorder columns to match expected order
+                    dataframe = dataframe[expected_cols]
+
+            except Exception:
+                # If alignment fails, fall back to original dataframe and let transform raise if needed
+                logging.warning("Could not align input dataframe to preprocessor feature names; proceeding without alignment")
+
             # Step 1: Apply scaling transformations using the pre-trained preprocessing object
             transformed_feature = self.preprocessing_object.transform(dataframe)
 
