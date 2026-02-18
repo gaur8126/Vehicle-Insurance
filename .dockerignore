@@ -1,0 +1,13 @@
+__pycache__
+artifacts
+env
+.gitignore
+logs
+template.py
+demo.py
+README.md
+LICENSE
+src.egg-info
+notebook
+workflow.txt
+mongo.py
