@@ -2,9 +2,10 @@ FROM python:3.10-slim-buster
 
 WORKDIR /app
 
-COPY . /app
+COPY . .
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
