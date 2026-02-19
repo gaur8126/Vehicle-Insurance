@@ -132,6 +132,8 @@ DevOps
 
 ### Deployed On AWS 
 
-<video src="deploy_video.mp4" width="600" controls>
-  Your browser does not support the video tag.
+<video src="[deploy_video.mp4](https://github.com/user-attachments/assets/0e32b163-e30c-4e32-b7fe-f7e25babda05)" width="600" controls>
+
 </video>
+
+https://github.com/user-attachments/assets/0e32b163-e30c-4e32-b7fe-f7e25babda05
