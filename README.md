@@ -104,30 +104,23 @@ Data Ingestion → Validation → Transformation → Model Training → Evaluati
 
 ### Tech Stack 
 ```
-Languages & Libraries
+Languages:
+Python
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- FastAPI
+Machine Learning & Data:
+Scikit-learn, Pandas, NumPy, Imbalanced-learn (SMOTEENN), Random Forest
 
-Database
+Backend & API:
+FastAPI
 
-- MongoDB Atlas
+Database:
+MongoDB Atlas
 
-Cloud
+DevOps & Deployment:
+Docker, GitHub Actions (CI/CD), AWS(EC2, S3, ECR)
 
-- AWS S3
-- AWS EC2
-- AWS ECR
-- AWS IAM
-
-DevOps
-
-- Docker
-- GitHub Actions
-- CI/CD
+Other Tools:
+Git, Uvicorn
 ```
 
 ### Deployed On AWS 
